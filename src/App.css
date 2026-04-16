@@ -1,0 +1,16 @@
+:root {
+  --bg-gradient: linear-gradient(
+          77.1deg,
+          rgba(36, 118, 254, 50%) 0%,
+          rgba(255, 255, 254, 0%) 100%
+  ),
+  linear-gradient(
+          77.1deg,
+          rgba(255, 255, 254, 0%) 0%,
+          rgba(255, 199, 0, 50%) 100%
+  );
+  --link-color: rgba(20, 23, 27, 50%);
+  --primary-color: #14171b;
+  --color-grey: #B9B9BB;
+  --color-blue: #3083FF;
+}

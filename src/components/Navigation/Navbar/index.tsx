@@ -1,0 +1,210 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
+import {
+  AppBar,
+  Box,
+  Container,
+  Dialog,
+  Grid,
+  IconButton,
+  MenuItem,
+  Toolbar,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+
+import { LINKS } from '../../../assets/constants';
+import { ButtonComponent, ButtonSize } from '../../ButtonComponent';
+import { IconComponent } from '../../IconComponent';
+import { LanguageToggle } from '../../LanguageToggle';
+import { Logo } from '../../Logo';
+import { SocialNavbar } from '../../SocialNavbar';
+import { NAVIGATION_MENU } from '../constants';
+import { NavLink } from '../NavLink';
+import { Transition } from './Transition';
+
+import styles from './styles.module.css';
+
+interface NavbarProps {}
+
+export const Navbar: React.FC<NavbarProps> = () => {
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const { t } = useTranslation();
+
+  const isTablet = useMediaQuery(theme.breakpoints.up('sm'));
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+
+  const iconStyles = {
+    color: theme.palette.icon,
+    border: `2px solid ${theme.palette.icon}`,
+    borderRadius: '10px',
+    p: { xs: 0.25, md: 1 },
+    '& .MuiSvgIcon-root': {
+      fontSize: '30px!important',
+    },
+  };
+
+  const paragraphStyles = {
+    fontSize: 30,
+    fontWeight: 700,
+    lineHeight: 1,
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const renderMobileMenu = () => {
+    if (isTablet) return null;
+
+    return (
+      <>
+        <Grid item xs={9}>
+          {NAVIGATION_MENU.map((path) => (
+            <MenuItem key={path} onClick={handleClose} sx={{ mb: 2 }}>
+              <NavLink paragraphStyles={paragraphStyles} path={path} />
+            </MenuItem>
+          ))}
+          <Box sx={{ mt: 5 }} />
+          <Box sx={{ ml: 2 }}>
+            <ButtonComponent
+              size={ButtonSize.small}
+              textButton={t('navigation.support')}
+              withRightArrow
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={3}>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <LanguageToggle isVertical />
+              <Box sx={{ mt: 4 }} />
+              <SocialNavbar
+                isVertical
+                instagramLink={LINKS.instagramLink}
+                facebookLink={LINKS.facebookLink}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+      </>
+    );
+  };
+
+  const renderTabletMenu = () => {
+    if (!isTablet) return null;
+
+    return (
+      <>
+        <Grid item xs={2}>
+          <SocialNavbar
+            isVertical
+            instagramLink={LINKS.instagramLink}
+            facebookLink={LINKS.facebookLink}
+          />
+        </Grid>
+        <Grid item xs={8}>
+          <Grid container justifyContent="flex-end">
+            <Grid item xs={6}>
+              {NAVIGATION_MENU.slice(0, 3).map((path) => (
+                <MenuItem key={path} onClick={handleClose} sx={{ mb: 2 }}>
+                  <NavLink paragraphStyles={paragraphStyles} path={path} />
+                </MenuItem>
+              ))}
+            </Grid>
+            <Grid item xs={6}>
+              {NAVIGATION_MENU.slice(3, 6).map((path) => (
+                <MenuItem key={path} onClick={handleClose} sx={{ mb: 2 }}>
+                  <NavLink paragraphStyles={paragraphStyles} path={path} />
+                </MenuItem>
+              ))}
+            </Grid>
+            <Grid item xs={0}>
+              {NAVIGATION_MENU.slice(6).map((path) => (
+                <MenuItem key={path} onClick={handleClose} sx={{ mb: 2 }}>
+                  <NavLink paragraphStyles={paragraphStyles} path={path} />
+                </MenuItem>
+              ))}
+            </Grid>
+          </Grid>
+          <Box sx={{ mt: 2 }} />
+          <Grid container justifyContent="center">
+            <ButtonComponent
+              size={ButtonSize.small}
+              textButton={t('navigation.support')}
+              withRightArrow
+            />
+          </Grid>
+        </Grid>
+        <Grid item xs={2}>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <LanguageToggle isVertical />
+            </Grid>
+          </Grid>
+        </Grid>
+      </>
+    );
+  };
+
+  return (
+    <nav className={styles.component}>
+      <IconButton aria-label="menu" onClick={handleClickOpen} sx={iconStyles}>
+        <IconComponent Icon={MenuIcon} />
+      </IconButton>
+      <Dialog
+        fullScreen
+        open={open}
+        onClose={handleClose}
+        style={{ maxHeight: isTablet ? '440px' : 'none' }}
+        TransitionComponent={Transition}
+        PaperProps={{
+          style: { background: theme.palette.blueGradient },
+        }}
+      >
+        <AppBar position="relative" style={{ background: theme.palette.white }}>
+          <Container maxWidth="lg">
+            <Toolbar
+              style={{
+                minHeight: isDesktop ? '98px' : '60px',
+                padding: 0,
+              }}
+            >
+              <Box
+                sx={{ mr: { xs: 'auto', xl: 0 } }}
+                style={{
+                  minWidth: isDesktop ? '164px' : '90px',
+                  width: isDesktop ? '164px' : '90px',
+                }}
+              >
+                <Logo />
+              </Box>
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                edge="start"
+                onClick={handleClose}
+                sx={iconStyles}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Toolbar>
+          </Container>
+        </AppBar>
+        <Container>
+          <Grid container spacing={2} sx={{ my: 4 }}>
+            {renderMobileMenu()}
+            {renderTabletMenu()}
+          </Grid>
+        </Container>
+      </Dialog>
+    </nav>
+  );
+};

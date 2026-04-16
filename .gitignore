@@ -1,0 +1,87 @@
+########################################
+# Files
+########################################
+.DS_STORE
+.env
+.eslintcache
+.generator.config
+.idea
+.vscode/settings.json
+.yo-rc.json
+*.log
+junit.xml
+
+########################################
+# Folders
+########################################
+node_modules/
+
+########################################
+# Compiled
+########################################
+dist/
+src/public/*worker*
+node_modules
+.vercel
+.next
+dist
+build
+.env
+node_modules
+.next
+out
+build
+dist
+.vscode
+.DS_Store
+*.log
+
+# dependencies
+node_modules/
+
+# builds
+.next/
+dist/
+build/
+
+# vercel
+.vercel/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# system
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# coverage
+coverage/
+
+
+# env
+.env
+.env.local
+
+# build
+build
+node_modules
+
+# system
+.DS_Store
+
+# vercel
+.vercel
+
+# logs
+npm-debug.log*
+.env*.local

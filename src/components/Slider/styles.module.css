@@ -1,0 +1,42 @@
+/* stylelint-disable selector-class-pattern */
+.swiper {
+	overflow: visible;
+	width: 100vw;
+}
+
+.swiper :global(.swiper-slide) {
+	height: auto;
+	overflow: hidden;
+}
+
+.header {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+	justify-content: space-between;
+	margin-bottom: 70px;
+}
+
+.navigation {
+	margin-left: auto;
+}
+ 
+.paginationContainer {
+	column-gap: 20px;
+	display: flex;
+	justify-content: center;
+	margin-top: 24px;
+	position: relative;
+}
+
+.paginationContainer :global(.swiper-custom-bullet),
+.paginationContainer :global(.swiper-custom-bullet-active) {
+	background-color: var(--color-grey);
+	height: 4px;
+	width: 20px;
+}
+
+.paginationContainer :global(.swiper-custom-bullet-active) {
+	background-color: var(--color-blue);
+}

@@ -1,0 +1,31 @@
+export enum MENU_ROUTES {
+  Home = 'home',
+  Projects = 'projects',
+  News = 'news',
+  NewsAndEvents = 'newsAndEvents',
+  About = 'about',
+  // Cooperation = 'cooperation',
+  // Contact = 'contact',
+  ProjectsDetails = 'projectsDetails',
+  Support = 'support',
+  UserAgreement = 'userAgreement',
+  Reports = 'reports',
+  Donate = 'donate',
+  Success = 'success',
+}
+
+export const ROUTES_PATH: { [key in MENU_ROUTES]: string } = {
+  [MENU_ROUTES.About]: '/about',
+  [MENU_ROUTES.Home]: '/',
+  // [MENU_ROUTES.Contact]: '/contact',
+  // [MENU_ROUTES.Cooperation]: '/cooperation',
+  [MENU_ROUTES.News]: '/news',
+  [MENU_ROUTES.NewsAndEvents]: '/news',
+  [MENU_ROUTES.Projects]: '/projects',
+  [MENU_ROUTES.ProjectsDetails]: '/projects/:id',
+  [MENU_ROUTES.Support]: '/support',
+  [MENU_ROUTES.UserAgreement]: '/user_agreement',
+  [MENU_ROUTES.Reports]: '/reports',
+  [MENU_ROUTES.Donate]: '/donate',
+  [MENU_ROUTES.Success]: '/success',
+};

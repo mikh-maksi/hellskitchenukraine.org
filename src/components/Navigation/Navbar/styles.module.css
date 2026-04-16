@@ -1,0 +1,17 @@
+.active {
+  color: var(--primary-color);
+}
+
+.link {
+  color: var(--link-color);
+  margin-right: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.list {
+  display: flex;
+  flex: none;
+  list-style: none;
+  margin: 0;
+}

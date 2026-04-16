@@ -1,0 +1,17 @@
+.component {
+  display: flex;
+  flex: none;
+  list-style: none;
+  margin-right: auto;
+}
+
+.list {
+  display: flex;
+  flex: none;
+  list-style: none;
+  margin: 0;
+}
+
+.listItem {
+  margin-right: 20px;
+}
