@@ -29,8 +29,8 @@ const HomePage: React.FC<HomePageProps> = () => {
         alt="About us"
         buttonText={t('homePage.aboutUs.buttonText')}
         copies={[t('homePage.aboutUs.copy'), t('homePage.aboutUs.copy2')]}
-        imagePath="/images/aboutUsSection/web/photo_about_us.png"
-        imageMobPath="/images/aboutUsSection/mob/photo_about_us.png"
+        imagePath="/images/aboutUsSection/web/photo_team.jpg"
+        imageMobPath="/images/aboutUsSection/mob/photo_team.jpg"
         label={t('homePage.aboutUs.label')}
         title={t('homePage.aboutUs.title')}
       />

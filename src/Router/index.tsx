@@ -21,7 +21,7 @@ const AppRoutes: React.FC = (): JSX.Element => (
       <Route path={ROUTES_PATH.projects} element={<Projects isBlue />} />
       <Route path={ROUTES_PATH.about} element={<AboutPage isBlue />} />
       <Route path={ROUTES_PATH.support} element={<SupportPage isBlue />} />
-      <Route path={ROUTES_PATH.news} element={<InProgressPage isBlue />} />
+      {/* <Route path={ROUTES_PATH.news} element={<InProgressPage isBlue />} /> */}
       {/* <Route
         path={ROUTES_PATH.cooperation}
         element={<InProgressPage isBlue />}
