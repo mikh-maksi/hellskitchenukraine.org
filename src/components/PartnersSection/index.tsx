@@ -37,15 +37,49 @@ export const PartnerSection: React.FC<PartnerSectionProps> = () => {
       src: `${imagesPath}/web/lion.png`,
       srcMob: `${imagesPath}/mob/lion.png`,
     },
+    // {
+    //   alt: 'Steglitz-Zehlendorf',
+    //   src: `${imagesPath}/web/Steglitz-Zehlendorf.png`,
+    //   srcMob: `${imagesPath}/mob/Steglitz-Zehlendorf.png`,
+    // },
+     {
+      alt: 'Нова Пошта',
+      src: `${imagesPath}/web/nova_poshta_logo.png`,
+      srcMob: `${imagesPath}/mob/nova_poshta_logo.png`,
+    },   {
+      alt: 'Приправка',
+      src: `${imagesPath}/web/Pripravka-Logо.png`,
+      srcMob: `${imagesPath}/mob/Pripravka-Logо.png`,
+    },  
     {
-      alt: 'Globe Ukraine logo',
-      src: `${imagesPath}/web/globeUkraine.png`,
-      srcMob: `${imagesPath}/mob/globeUkraine.png`,
+      alt: 'XENIA Association ',
+      src: `${imagesPath}/web/XENIA-Assiciation.png`,
+      srcMob: `${imagesPath}/mob/XENIA-Assiciation.png`,
     },
-    {
-      alt: 'Gvara logo',
-      src: `${imagesPath}/web/gvara.png`,
-      srcMob: `${imagesPath}/mob/gvara.png`,
+        {
+      alt: 'БФ "Крила Надії"',
+      src: `${imagesPath}/web/krylanadiyi.png`,
+      srcMob: `${imagesPath}/mob/krylanadiyi.png`,
+    },     {
+      alt: 'Аврора',
+      src: `${imagesPath}/web/logo_Avrora.png`,
+      srcMob: `${imagesPath}/mob/logo_Avrora.png`,
+    },    {
+      alt: 'Харківські Дріжджі (БАЛЄКС)',
+      src: `${imagesPath}/web/kharkiv_yeast.jpg`,
+      srcMob: `${imagesPath}/mob/kharkiv_yeast.jpg`,
+    },      {
+      alt: 'ГО "Майстерня Добрих Справ"',
+      src: `${imagesPath}/web/maisterniadobryhsprav.png`,
+      srcMob: `${imagesPath}/mob/maisterniadobryhsprav.png`,
+    },  {
+      alt: 'Austrian Embassy Kyiv',
+      src: `${imagesPath}/web/austriainua.png`,
+      srcMob: `${imagesPath}/mob/austriainua.png`,
+    }, {
+      alt: 'Steglitz-Zehlendorf',
+      src: `${imagesPath}/web/de.png`,
+      srcMob: `${imagesPath}/mob/de.png`,
     },
   ];
 

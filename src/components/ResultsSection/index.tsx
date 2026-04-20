@@ -21,17 +21,17 @@ import styles from './styles.module.css';
 
 const results: ResultsData[] = [
   {
-    data: '350+',
+    data: '>1,7 млн',
     description: 'homePage.resultsSection.mealsPrepared',
     imageUrl: 'images/resultsSection/meals.png',
   },
   {
-    data: '100 000+',
+    data: '>1 млн ',
     description: 'homePage.resultsSection.peopleFed',
     imageUrl: 'images/resultsSection/people.png',
   },
   {
-    data: '>1 млн',
+    data: '>65,8 млн. грн',
     description: 'homePage.resultsSection.projectCompleted',
     imageUrl: 'images/resultsSection/projects.png',
   },

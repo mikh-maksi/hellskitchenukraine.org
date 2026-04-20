@@ -78,19 +78,19 @@ i18n.use(initReactI18next).init({
           ourProjects: {
             projectsSectionTitle: 'Projects in which we put our heart and soul',
             card1: {
-              buttonText: 'Learn more',
+              buttonText: 'Support',
               copy: `We design and build mechanisms for civil demining`,
               title: 'Demining territories',
             },
             card2: {
-              buttonText: 'Learn more',
+              buttonText: 'Support',
               copy: `We prepare meals and provide humanitarian aid to Kharkiv residents`,
               title: 'Feeding people',
             },
             card3: {
-              buttonText: 'Learn more',
-              copy: `We create new jobs and restore infrastructure in communities`,
-              title: 'Social enterprises',
+              buttonText: 'Support',
+              copy: `We repair volunteer cars, medical and evacuation vehicles`,
+              title: 'Service stations',
             },
           },
           bannerSection: {
@@ -176,7 +176,7 @@ i18n.use(initReactI18next).init({
             title: 'Results of our efforts',
             seeInteresting:
               'See interesting reports and news on our social media networks',
-            projectCompleted: 'Projects completed',
+            projectCompleted: 'Assistance provided',
             peopleFed: 'People fed',
             mealsPrepared: 'Meals prepared',
             joinInToHelp: 'Join in to help',
@@ -399,19 +399,19 @@ Our mission is to enhance the safety of those who clear our land of mines and ot
           },
           ourProjects: {
             card1: {
-              buttonText: 'Переглянути',
+              buttonText: 'Підтримати',
               copy: `Проектуємо та будуємо механізми для цивільного розмінування`,
               title: 'Розмінування територій',
             },
             card2: {
-              buttonText: 'Переглянути',
+              buttonText: 'Підтримати',
               copy: `Готуємо обіди та надаємо гуманітарну допомогу харків’янам`,
               title: 'Годування людей',
             },
             card3: {
-              buttonText: 'Переглянути',
-              copy: `Створюємо нові робочі місця та відновлюємо економіку у громадах`,
-              title: 'Соціальні підприємства',
+              buttonText: 'Підтримати',
+              copy: `Ремонтуємо автомобілі волонтерів, медичні та евакуаційні авто`,
+              title: 'Проєкт СТО',
             },
             projectsSectionTitle: 'Проєкти, в які вкладаємо душу',
           },
@@ -497,7 +497,7 @@ Our mission is to enhance the safety of those who clear our land of mines and ot
             title: 'Результати роботи',
             seeInteresting:
               'Дивись цікаві звіти та нову інформацію в наших соц мережах',
-            projectCompleted: 'Проєктів виконано',
+            projectCompleted: 'Оказаної допомоги',
             peopleFed: 'Людей нагодовано',
             mealsPrepared: 'Порцій виготовлено',
             joinInToHelp: 'Долучитися до допомоги',

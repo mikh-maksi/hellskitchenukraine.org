@@ -21,15 +21,15 @@ interface CardContent {
 
 const cardContent: CardContent[] = [
   {
-    imageUrl: '/images/ourProjectsSection/card1.png',
+    imageUrl: '/images/ourProjectsSection/card1.jpg',
     localizationPath: 'homePage.ourProjects.card1',
   },
   {
-    imageUrl: '/images/ourProjectsSection/card2.png',
+    imageUrl: '/images/ourProjectsSection/card2.jpg',
     localizationPath: 'homePage.ourProjects.card2',
   },
   {
-    imageUrl: '/images/ourProjectsSection/card3.png',
+    imageUrl: '/images/ourProjectsSection/card3.jpg',
     localizationPath: 'homePage.ourProjects.card3',
   },
 ];
