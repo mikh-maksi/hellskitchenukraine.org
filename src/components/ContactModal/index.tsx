@@ -1,24 +1,22 @@
-import { useState } from "react";
+import { Turnstile } from '@marsidev/react-turnstile';
+import React, { useState } from 'react';
 
-import { Turnstile } from "@marsidev/react-turnstile";
+import styles from './ContactModal.module.css';
 
-import "./ContactModal.css";
-
-export default function ContactModal() {
-
+export const ContactModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState('');
 
   const [turnstileToken, setTurnstileToken] =
-    useState("");
+    useState('');
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
+    name: '',
+    email: '',
+    message: '',
   });
 
   const openModal = () => {
@@ -27,26 +25,30 @@ export default function ContactModal() {
 
   const closeModal = () => {
     setIsOpen(false);
+
+    setStatus('');
   };
 
-  const handleChange = (e) => {
-
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement
+    >,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
-
   };
 
-  const handleSubmit = async (e) => {
-
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>,
+  ) => {
     e.preventDefault();
 
-    setStatus("");
+    setStatus('');
 
     if (!turnstileToken) {
-
-      setStatus("Пройдіть CAPTCHA");
+      setStatus('Пройдіть CAPTCHA');
 
       return;
     }
@@ -54,101 +56,95 @@ export default function ContactModal() {
     setLoading(true);
 
     try {
-
       const data = new FormData();
 
-      data.append("name", formData.name);
-      data.append("email", formData.email);
-      data.append("message", formData.message);
+      data.append('name', formData.name);
+
+      data.append('email', formData.email);
+
+      data.append('message', formData.message);
 
       data.append(
-        "_subject",
-        "Нова заявка з React сайту"
+        '_subject',
+        'Нова заявка з React сайту',
       );
 
       data.append(
-        "cf-turnstile-response",
-        turnstileToken
+        'cf-turnstile-response',
+        turnstileToken,
       );
 
       const response = await fetch(
-        "https://formspree.io/f/mvzlnabn",
+        'https://formspree.io/f/mvzlnabn',
         {
-          method: "POST",
+          method: 'POST',
           body: data,
           headers: {
-            Accept: "application/json"
-          }
-        }
+            Accept: 'application/json',
+          },
+        },
       );
 
       if (response.ok) {
-
         setStatus(
-          "Повідомлення успішно відправлено"
+          'Повідомлення успішно відправлено',
         );
 
         setFormData({
-          name: "",
-          email: "",
-          message: ""
+          name: '',
+          email: '',
+          message: '',
         });
 
+        setTurnstileToken('');
       } else {
-
-        setStatus("Помилка відправки");
-
+        setStatus('Помилка відправки');
       }
-
     } catch (error) {
-
-      setStatus("Помилка сервера");
-
+      setStatus('Помилка сервера');
     } finally {
-
       setLoading(false);
-
     }
-
   };
 
   return (
     <>
-
-      {/* Open button */}
-
       <button
-        className="contact-open-btn"
+        type="button"
+        className={styles.openBtn}
         onClick={openModal}
       >
         Зв'язатися з нами
       </button>
 
-      {/* Modal */}
-
       {isOpen && (
-
-        <div
-          className="contact-overlay"
+        <button
+          type="button"
+          className={styles.overlay}
           onClick={closeModal}
         >
-
           <div
-            className="contact-modal"
+            className={styles.modal}
+            role="dialog"
+            aria-modal="true"
             onClick={(e) => e.stopPropagation()}
           >
-
             <button
-              className="contact-close-btn"
+              type="button"
+              className={styles.closeBtn}
               onClick={closeModal}
             >
               ×
             </button>
 
-            <h2>Форма зворотного зв'язку</h2>
+            <h2 className={styles.title}>
+              Форма зворотного зв'язку
+            </h2>
 
-            <form onSubmit={handleSubmit}>
-
+            <form
+              className={styles.form}
+              onSubmit={handleSubmit}
+            >
               <input
                 type="text"
                 name="name"
@@ -184,26 +180,23 @@ export default function ContactModal() {
 
               <button
                 type="submit"
+                className={styles.submitBtn}
                 disabled={loading}
               >
                 {loading
-                  ? "Відправка..."
-                  : "Відправити"}
+                  ? 'Відправка...'
+                  : 'Відправити'}
               </button>
 
               {status && (
-                <div className="contact-status">
+                <div className={styles.status}>
                   {status}
                 </div>
               )}
-
             </form>
-
           </div>
-
-        </div>
+        </button>
       )}
-
     </>
   );
-}
+};

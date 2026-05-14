@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@marsidev/react-turnstile": "^1.5.2",
     "@mui/icons-material": "^5.15.9",
     "@mui/material": "^5.15.9",
     "@types/i18n": "^0.13.10",

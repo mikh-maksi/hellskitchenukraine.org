@@ -9,6 +9,7 @@ import { DonateSection } from '../../components/DonateSection';
 import { ProjectsMainSection } from '../../components/ProjectsMainSection';
 import { a11yProps, TabsComponent } from '../../components/TabsComponent';
 import { withHeaderFooter } from '../../hoc/withHeaderFooter';
+import { ContactModal } from "../../components/ContactModal";
 
 interface ProjectsProps {
   isBlue?: boolean;
@@ -146,6 +147,7 @@ const Projects: React.FC<ProjectsProps> = () => {
               localizationPath="homePage.bannerSection.section2"
             />
           </Box>
+          <ContactModal />
         </TabsComponent>
         <TabsComponent value={value} index={2}>
           <ProjectsMainSection
