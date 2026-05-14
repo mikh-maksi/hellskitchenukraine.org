@@ -1,5 +1,6 @@
-import { Turnstile } from '@marsidev/react-turnstile';
 import React, { useState } from 'react';
+
+import { Turnstile } from '@marsidev/react-turnstile';
 
 import styles from './ContactModal.module.css';
 
@@ -38,6 +39,12 @@ export const ContactModal = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleModalClick = (
+    e: React.MouseEvent<HTMLDivElement>,
+  ) => {
+    e.stopPropagation();
   };
 
   const handleSubmit = async (
@@ -118,21 +125,26 @@ export const ContactModal = () => {
       </button>
 
       {isOpen && (
-        <button
-          type="button"
-          className={styles.overlay}
-          onClick={closeModal}
-        >
-          <div
-            className={styles.modal}
-            role="dialog"
-            aria-modal="true"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className={styles.overlay}>
+          <button
+            type="button"
+            className={styles.backdrop}
+            onClick={closeModal}
+            aria-label="Закрити модальне вікно"
+          />
+
+/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */
+<div
+  className={styles.modal}
+  role="dialog"
+  aria-modal="true"
+  onClick={handleModalClick}
+>
             <button
               type="button"
               className={styles.closeBtn}
               onClick={closeModal}
+              aria-label="Закрити"
             >
               ×
             </button>
@@ -195,7 +207,7 @@ export const ContactModal = () => {
               )}
             </form>
           </div>
-        </button>
+        </div>
       )}
     </>
   );
