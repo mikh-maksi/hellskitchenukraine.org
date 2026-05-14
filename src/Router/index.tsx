@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { ScrollToTop } from '../components/scrolltotop/ScrollToTop';
 import AboutPage from '../pages/AboutPage';
+import ContactPage from '../pages/ContactPage';
 import DonatePage from '../pages/DonatePage';
 import HomePage from '../pages/HomePage';
 import InProgressPage from '../pages/InProgressPage';
@@ -21,6 +22,7 @@ const AppRoutes: React.FC = (): JSX.Element => (
       <Route path={ROUTES_PATH.projects} element={<Projects isBlue />} />
       <Route path={ROUTES_PATH.about} element={<AboutPage isBlue />} />
       <Route path={ROUTES_PATH.support} element={<SupportPage isBlue />} />
+
       {/* <Route path={ROUTES_PATH.news} element={<InProgressPage isBlue />} /> */}
       {/* <Route
         path={ROUTES_PATH.cooperation}
@@ -33,6 +35,7 @@ const AppRoutes: React.FC = (): JSX.Element => (
       />
       <Route path={ROUTES_PATH.reports} element={<ReportsPage />} />
       <Route path={ROUTES_PATH.donate} element={<DonatePage />} />
+      <Route path={ROUTES_PATH.contact} element={<ContactPage />} />
       <Route path={ROUTES_PATH.success} element={<SuccessPage />} />
       <Route path="*" element={<NotFoundPage isBlue />} />
     </Routes>

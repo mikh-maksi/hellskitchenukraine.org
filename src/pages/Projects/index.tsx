@@ -82,7 +82,7 @@ const Projects: React.FC<ProjectsProps> = () => {
           >
             <AboutUsSection
               alt="About us"
-              buttonText={t('homePage.tab1.aboutUs.buttonText')}
+              buttonText={t('projectsPage.tab1.aboutUs.buttonText')}
               copies={[t('projectsPage.tab1.aboutUs.copy1')]}
               imagePath="/images/aboutUsSection/web/tab1.png"
               imageMobPath="/images/aboutUsSection/mob/tab1.png"
