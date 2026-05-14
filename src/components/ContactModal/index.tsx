@@ -87,7 +87,7 @@ export const ContactModal = () => {
 
       if (response.ok) {
         setStatus(
-          'Повідомлення успішно відправлено',
+          'Повідомлення успішно відправлено ',
         );
 
         setFormData({
