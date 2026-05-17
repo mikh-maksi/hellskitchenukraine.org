@@ -1,6 +1,7 @@
 export enum MENU_ROUTES {
   Home = 'home',
   Projects = 'projects',
+  JoinUs = 'joinus',
   // News = 'news',
   // NewsAndEvents = 'newsAndEvents',
   About = 'about',
@@ -23,6 +24,7 @@ export const ROUTES_PATH: { [key in MENU_ROUTES]: string } = {
   // [MENU_ROUTES.News]: '/news',
   // [MENU_ROUTES.NewsAndEvents]: '/news',
   [MENU_ROUTES.Projects]: '/projects',
+  [MENU_ROUTES.JoinUs]: '/joinus',
   [MENU_ROUTES.ProjectsDetails]: '/projects/:id',
   [MENU_ROUTES.Support]: '/support',
   [MENU_ROUTES.UserAgreement]: '/user_agreement',

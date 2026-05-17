@@ -253,6 +253,13 @@ Our mission is to enhance the safety of those who clear our land of mines and ot
             },
           },
         },
+        joinusPage: {
+          page: {
+            title: 'Fund Reports',
+            descriptionText:
+              'Here you can review the financial reports and activity reports of the fund for the respective years.',
+          },
+          },
         reportsPage: {
           page: {
             title: 'Fund Reports',
@@ -571,6 +578,13 @@ Our mission is to enhance the safety of those who clear our land of mines and ot
               buttonText: 'Підтримати',
               title: 'Годування пацієнтів у лікарнях',
             },
+          },
+        },
+        joinusPage: {
+          page: {
+            title: 'Долучись до нашої діяльності',
+            descriptionText:
+              '  Для початку співпраці відправте заявку, заповнивши форму.',
           },
         },
         reportsPage: {

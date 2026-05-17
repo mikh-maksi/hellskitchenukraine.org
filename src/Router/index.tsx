@@ -7,6 +7,7 @@ import ContactPage from '../pages/ContactPage';
 import DonatePage from '../pages/DonatePage';
 import HomePage from '../pages/HomePage';
 import InProgressPage from '../pages/InProgressPage';
+import JoinUsPage from '../pages/JoinUsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import Projects from '../pages/Projects';
 import ReportsPage from '../pages/ReportsPage';
@@ -20,6 +21,7 @@ const AppRoutes: React.FC = (): JSX.Element => (
     <Routes>
       <Route path={ROUTES_PATH.home} element={<HomePage />} />
       <Route path={ROUTES_PATH.projects} element={<Projects isBlue />} />
+      <Route path={ROUTES_PATH.joinus} element={<JoinUsPage />} />
       <Route path={ROUTES_PATH.about} element={<AboutPage isBlue />} />
       <Route path={ROUTES_PATH.support} element={<SupportPage isBlue />} />
 

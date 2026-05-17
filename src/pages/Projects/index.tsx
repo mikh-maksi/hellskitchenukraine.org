@@ -4,12 +4,12 @@ import { Box, Container, Tab, Tabs, useTheme } from '@mui/material';
 
 import { AboutUsSection } from '../../components/AboutUsSection';
 import { BannerSection } from '../../components/BannerSection';
+import { BannerSectionJoin } from '../../components/BannerSectionJoin';
 import { CoordinatorSection } from '../../components/CoordinatorSection';
 import { DonateSection } from '../../components/DonateSection';
 import { ProjectsMainSection } from '../../components/ProjectsMainSection';
 import { a11yProps, TabsComponent } from '../../components/TabsComponent';
 import { withHeaderFooter } from '../../hoc/withHeaderFooter';
-import { ContactModal } from "../../components/ContactModal";
 
 interface ProjectsProps {
   isBlue?: boolean;
@@ -92,7 +92,7 @@ const Projects: React.FC<ProjectsProps> = () => {
             />
           </Box>
           <Box sx={{ pt: 20, pb: 30 }}>
-            <BannerSection
+            <BannerSectionJoin
               imageMobPath="images/bannerSection/mob/window.jpg"
               imagePath="images/bannerSection/web/window.jpg"
               localizationPath="homePage.bannerSection.section1"
@@ -147,7 +147,7 @@ const Projects: React.FC<ProjectsProps> = () => {
               localizationPath="homePage.bannerSection.section2"
             />
           </Box>
-          <ContactModal />
+
         </TabsComponent>
         <TabsComponent value={value} index={2}>
           <ProjectsMainSection
