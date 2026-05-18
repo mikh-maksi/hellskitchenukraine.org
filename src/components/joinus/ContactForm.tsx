@@ -35,7 +35,6 @@ export const ContactForm: React.FC = () => {
         setStatus("Помилка при надсиланні форми.");
       }
     } catch (error) {
-      console.error(error);
       setStatus("Сталася помилка.");
     } finally {
       setLoading(false);

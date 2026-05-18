@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
 
 import { AboutUsSection } from '../../components/AboutUsSection';
-import { BannerSection } from '../../components/BannerSection';
+import { BannerSectionJoin } from '../../components/BannerSectionJoin';
 import { DonateSection } from '../../components/DonateSection';
 import { HelpSection } from '../../components/HelpSection';
 import { HPMainSection } from '../../components/HPMainSection';
@@ -37,7 +37,7 @@ const HomePage: React.FC<HomePageProps> = () => {
       <OurProjectSection />
       <ResultsSection />
       <PartnerSection />
-      <BannerSection
+      <BannerSectionJoin
         imageMobPath="images/bannerSection/mob/window.jpg"
         imagePath="images/bannerSection/web/window.jpg"
         localizationPath="homePage.bannerSection.section1"
@@ -46,7 +46,7 @@ const HomePage: React.FC<HomePageProps> = () => {
       <HelpSection />
       <NewsSection />
       <RewardsSection />
-      <BannerSection
+      <BannerSectionJoin
         imageMobPath="images/bannerSection/mob/emblem.jpg"
         imagePath="images/bannerSection/web/emblem.jpg"
         localizationPath="homePage.bannerSection.section2"

@@ -23,8 +23,8 @@ const Projects: React.FC<ProjectsProps> = () => {
         alt="About us"
         buttonText={t('homePage.aboutUs.buttonText')}
         copies={[t('homePage.aboutUs.copy'), t('homePage.aboutUs.copy2')]}
-        imagePath="/images/aboutUsSection/web/photo_about_us.png"
-        imageMobPath="/images/aboutUsSection/mob/photo_about_us.png"
+        imagePath="/images/aboutUsSection/web/photo_team_web.png"
+        imageMobPath="/images/aboutUsSection/web/photo_team_web.png"
         label={t('homePage.aboutUs.label')}
         title={t('homePage.aboutUs.title')}
       />
