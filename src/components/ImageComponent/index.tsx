@@ -7,6 +7,7 @@ interface ImageCardProps {
   src: string;
   style?: CSSProperties;
   withBorder?: boolean;
+  lnk?:string;
 }
 
 export const ImageComponent: React.FC<ImageCardProps> = ({
@@ -15,6 +16,7 @@ export const ImageComponent: React.FC<ImageCardProps> = ({
   src,
   style,
   withBorder,
+  lnk,
 }) => {
   const theme = useTheme();
 
@@ -40,12 +42,14 @@ export const ImageComponent: React.FC<ImageCardProps> = ({
   };
 
   return (
-    <CardMedia
+    <div><a href={lnk}
+  target="_blank"
+  rel="noopener noreferrer"><CardMedia
       alt={alt}
       className={className}
       component="img"
       src={src}
       style={getStyle()}
-    />
+    /></a></div>
   );
 };

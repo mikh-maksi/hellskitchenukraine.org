@@ -11,6 +11,7 @@ interface contentItem {
   alt: string;
   src: string;
   srcMob: string;
+  link: string;
 }
 
 export const PartnerSection: React.FC<PartnerSectionProps> = () => {
@@ -26,16 +27,19 @@ export const PartnerSection: React.FC<PartnerSectionProps> = () => {
       alt: 'NOVA Ukraine logo',
       src: `${imagesPath}/web/novaUkraine.png`,
       srcMob: `${imagesPath}/mob/novaUkraine.png`,
+      link: ``,
     },
     {
       alt: 'World Central Kitchen logo',
       src: `${imagesPath}/web/worldCentralKitchen.png`,
       srcMob: `${imagesPath}/mob/worldCentralKitchen.png`,
+      link: ``,
     },
     {
       alt: 'Lion defence team logo',
       src: `${imagesPath}/web/lion.png`,
       srcMob: `${imagesPath}/mob/lion.png`,
+      link: ``,
     },
     // {
     //   alt: 'Steglitz-Zehlendorf',
@@ -46,40 +50,53 @@ export const PartnerSection: React.FC<PartnerSectionProps> = () => {
       alt: 'Нова Пошта',
       src: `${imagesPath}/web/nova_poshta_logo.png`,
       srcMob: `${imagesPath}/mob/nova_poshta_logo.png`,
+      link: `https://humanitarian.novaposhta.ua/`,
     },   {
       alt: 'Приправка',
       src: `${imagesPath}/web/Pripravka-Logо.png`,
       srcMob: `${imagesPath}/mob/Pripravka-Logо.png`,
+      link: `https://pripravka.ua/uk`,
     },  
     {
       alt: 'XENIA Association ',
       src: `${imagesPath}/web/XENIA-Assiciation.png`,
       srcMob: `${imagesPath}/mob/XENIA-Assiciation.png`,
+      link: `https://xeniaassociation.wordpress.com/`,
     },
         {
       alt: 'БФ "Крила Надії"',
       src: `${imagesPath}/web/krylanadiyi.png`,
       srcMob: `${imagesPath}/mob/krylanadiyi.png`,
+      link: `https://krylanadiyi.org.ua/`,
     },     {
       alt: 'Аврора',
       src: `${imagesPath}/web/logo_Avrora.png`,
       srcMob: `${imagesPath}/mob/logo_Avrora.png`,
-    },    {
+      link: `https://avrora.ua/`,
+    },    
+    {
       alt: 'Харківські Дріжджі (БАЛЄКС)',
       src: `${imagesPath}/web/kharkiv_yeast.jpg`,
       srcMob: `${imagesPath}/mob/kharkiv_yeast.jpg`,
-    },      {
+      link: `https://www.instagram.com/kharkiv_yeast/`,
+    },      
+    {
       alt: 'ГО "Майстерня Добрих Справ"',
       src: `${imagesPath}/web/maisterniadobryhsprav.png`,
       srcMob: `${imagesPath}/mob/maisterniadobryhsprav.png`,
-    },  {
+      link: `https://www.instagram.com/maisterniadobryhsprav/`,
+    },  
+    {
       alt: 'Austrian Embassy Kyiv',
       src: `${imagesPath}/web/austriainua.png`,
       srcMob: `${imagesPath}/mob/austriainua.png`,
-    }, {
+      link: `https://www.instagram.com/austriainua/`,
+    }, 
+    {
       alt: 'Steglitz-Zehlendorf',
       src: `${imagesPath}/web/de.png`,
       srcMob: `${imagesPath}/mob/de.png`,
+      link: `https://www.berlin.de/ba-steglitz-zehlendorf/politik-und-verwaltung/beauftragte/partnerstaedte/artikel.1474356.php`,
     },
   ];
 
@@ -91,6 +108,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = () => {
         <ImageComponent
           alt={item.alt}
           src={isTablet ? item.src : item.srcMob}
+          lnk={item.link}
         />
       </Grid>
     ));
