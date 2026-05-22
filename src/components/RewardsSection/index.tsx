@@ -31,7 +31,7 @@ export const RewardsSection: React.FC = () => {
 
   return (
     <Box
-      sx={{ pb: 40, pt: 15 }}
+      sx={{ pb: 40, pt: 1 }}
       style={{ background: theme.palette.lightBlue }}
     >
       <Container maxWidth="lg" style={{ overflow: 'hidden' }}>

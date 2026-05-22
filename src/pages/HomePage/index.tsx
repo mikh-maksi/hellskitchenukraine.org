@@ -8,7 +8,7 @@ import { DonateSection } from '../../components/DonateSection';
 import { HelpSection } from '../../components/HelpSection';
 import { HPMainSection } from '../../components/HPMainSection';
 import { MediaContent } from '../../components/MediaContent';
-import { NewsSection } from '../../components/NewsSection';
+// import { NewsSection } from '../../components/NewsSection';
 import { OurProjectSection } from '../../components/OurProjectsSection';
 import { PartnerSection } from '../../components/PartnersSection';
 import { PhotosGallery } from '../../components/PhotosGallery';
@@ -44,7 +44,7 @@ const HomePage: React.FC<HomePageProps> = () => {
       />
       <MediaContent />
       <HelpSection />
-      <NewsSection />
+      {/* <NewsSection /> */}
       <RewardsSection />
       <BannerSectionJoin
         imageMobPath="images/bannerSection/mob/emblem.jpg"

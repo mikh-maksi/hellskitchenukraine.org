@@ -8,6 +8,7 @@ interface MediaDeskProps {
   withBorderBRRadius?: boolean;
   withBorderTLRadius?: boolean;
   withBorderTRRadius?: boolean;
+  lnk?:string;
 }
 
 const MediaDesk: React.FC<MediaDeskProps> = ({
@@ -17,6 +18,7 @@ const MediaDesk: React.FC<MediaDeskProps> = ({
   withBorderBRRadius,
   withBorderTLRadius,
   withBorderTRRadius,
+  lnk,
 }) => {
   const theme = useTheme();
 
@@ -49,6 +51,9 @@ const MediaDesk: React.FC<MediaDeskProps> = ({
         position: 'relative',
         width: getWidth(),
       }}
+    ><a href = {lnk}
+     target="_blank"
+    rel="noopener noreferrer"
     >
       <CardMedia
         alt={alt}
@@ -64,6 +69,7 @@ const MediaDesk: React.FC<MediaDeskProps> = ({
           objectFit: 'cover',
         }}
       />
+      </a>
     </Box>
   );
 };

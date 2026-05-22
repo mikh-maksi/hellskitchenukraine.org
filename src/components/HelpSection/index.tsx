@@ -62,6 +62,22 @@ const slidersContent: SliderContent[] = [
     text: 'homePage.helpSection.sliders.sytenkoInstitute',
     imageUrl: '/pic_help-7.png',
   },
+  {
+    text: 'homePage.helpSection.sliders.medcenter',
+    imageUrl: '/medcenter.png',
+  },
+  {
+    text: 'homePage.helpSection.sliders.multihospital',
+    imageUrl: '/multihospital.png',
+  },
+  {
+    text: 'homePage.helpSection.sliders.kharkivregionalhospital',
+    imageUrl: '/kharkivregionalhospital.jpg',
+  },
+  {
+    text: 'homePage.helpSection.sliders.psyinstitutngu',
+    imageUrl: '/psyinstitutngu.png',
+  },
 ];
 
 const cardContent: CardContent[] = [
