@@ -1,4 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
+
 import { buildWayForPayData } from '../lib/wayforpay';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {

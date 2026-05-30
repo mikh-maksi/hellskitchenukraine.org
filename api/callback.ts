@@ -1,6 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { createSignature } from '../lib/crypto';
 import Busboy from 'busboy';
+
+import { createSignature } from '../lib/crypto';
 
 export const config = {
   api: {
@@ -13,6 +14,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let data: Record<string, any> = {};
 
   try {
