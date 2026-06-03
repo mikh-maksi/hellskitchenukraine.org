@@ -24,8 +24,18 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).end();
   }
 
+console.log('METHOD:', req.method);
+console.log('HEADERS:', req.headers);
+console.log('BODY:', req.body);
+
+if (!req.body) {
+  return res.status(400).json({
+    error: 'Request body is missing',
+  });
+}
+
   try {
-    const { amount, currency = 'UAH' } = req.body;
+    const { amount =100, currency = 'UAH' } = req.body;
 
     if (!amount || Number(amount) <= 0) {
       return res.status(400).json({ error: 'Invalid amount' });
