@@ -51,7 +51,7 @@ export const QrCard: React.FC<QrCardProps> = ({
 
     <Box
       sx={{
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#FFFFFE',
         p: { xs: 1.5, sm: 2 },
         borderRadius: 4,
         display: 'flex',
