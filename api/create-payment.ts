@@ -24,6 +24,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).end();
   }
 
+console.log('BODY TYPE:', typeof req.body);
+console.log('RAW BODY:', req.body);
 console.log('METHOD:', req.method);
 console.log('HEADERS:', req.headers);
 console.log('BODY:', req.body);
