@@ -6,6 +6,7 @@ export const createSignature = (
 ) => {
   const dataString = values.map((v) => String(v ?? '')).join(';');
   console.log(dataString);
+  console.log(secret);
   return crypto
     .createHmac('md5', secret)
     .update(dataString, 'utf8')
