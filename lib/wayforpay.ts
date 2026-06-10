@@ -17,25 +17,14 @@ export const buildWayForPayData = (params: {
   }
 
   const orderDate = Math.floor(Date.now() / 1000);
-  const domain = 'hellskitchenukraine.org';
+  // const domain = 'hellskitchenukraine.org';
+  const domain = 'https://hellskitchenukraine.org/';
 
   const productName = 'Благодійна безповоротна допомога на статутну діяльність.';
   const productCount = '1';
   const productPrice = String(params.amount);
 
-  // const signatureData = [
-  //   WAYFORPAY_MERCHANT,
-  //   domain,
-  //   params.orderReference,
-  //   String(orderDate),
-  //   productPrice,
-  //   params.currency,
-  //   productName,
-  //   productCount,
-  //   productPrice,
-  // ];
-
-    const signatureData = [
+  const signatureData = [
     WAYFORPAY_MERCHANT,
     domain,
     params.orderReference,
@@ -43,12 +32,24 @@ export const buildWayForPayData = (params: {
     productPrice,
     params.currency,
     productName,
-    '',
     productCount,
-    '',
     productPrice,
-    ''
   ];
+
+  //   const signatureData = [
+  //   WAYFORPAY_MERCHANT,
+  //   domain,
+  //   params.orderReference,
+  //   String(orderDate),
+  //   productPrice,
+  //   params.currency,
+  //   productName,
+  //   '',
+  //   productCount,
+  //   '',
+  //   productPrice,
+  //   ''
+  // ];
 
   const signature = createSignature(WAYFORPAY_SECRET, signatureData);
   const outData = {
