@@ -31,7 +31,9 @@ export const buildWayForPayData = (params: {
     productPrice,
     params.currency,
     productName,
+    '',
     productCount,
+    '',
     productPrice,
   ];
 
