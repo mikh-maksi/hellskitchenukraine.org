@@ -35,6 +35,7 @@ export const buildWayForPayData = (params: {
     productCount,
     '',
     productPrice,
+    ''
   ];
 
   const signature = createSignature(WAYFORPAY_SECRET, signatureData);
