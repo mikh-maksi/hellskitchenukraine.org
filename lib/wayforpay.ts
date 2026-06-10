@@ -23,19 +23,7 @@ export const buildWayForPayData = (params: {
   const productCount = '1';
   const productPrice = String(params.amount);
 
-  const signatureData = [
-    WAYFORPAY_MERCHANT,
-    domain,
-    params.orderReference,
-    String(orderDate),
-    productPrice,
-    params.currency,
-    productName,
-    productCount,
-    productPrice,
-  ];
-
-  //   const signatureData = [
+  // const signatureData = [
   //   WAYFORPAY_MERCHANT,
   //   domain,
   //   params.orderReference,
@@ -43,16 +31,27 @@ export const buildWayForPayData = (params: {
   //   productPrice,
   //   params.currency,
   //   productName,
-  //   '',
   //   productCount,
-  //   '',
   //   productPrice,
-  //   ''
   // ];
 
-  const signature = createSignature(WAYFORPAY_SECRET, signatureData);
+    const signatureData = [
+    WAYFORPAY_MERCHANT,
+    domain,
+    params.orderReference,
+    String(orderDate),
+    productPrice,
+    params.currency,
+    productName,
+    '',
+    productCount,
+    '',
+    productPrice,
+    ''
+  ];
 
-  return {
+  const signature = createSignature(WAYFORPAY_SECRET, signatureData);
+  const outData = {
     merchantAccount: WAYFORPAY_MERCHANT,
     merchantDomainName: domain,
     merchantSignature: signature,
@@ -68,4 +67,20 @@ export const buildWayForPayData = (params: {
     returnMethod: 'GET',
     returnAuto: 'yes',
   };
+
+  Object.entries(outData).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      value.forEach((item) => {
+        console.log( `${key}[]`); // ← ПОВЕРТАЄМО []
+        console.log(String(item));
+
+      });
+    } else {
+      console.log(key);
+      console.log(value);
+    }
+  });
+
+
+  return outData;
 };
