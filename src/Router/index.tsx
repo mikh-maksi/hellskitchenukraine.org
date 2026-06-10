@@ -5,6 +5,7 @@ import { ScrollToTop } from '../components/scrolltotop/ScrollToTop';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import DonatePage from '../pages/DonatePage';
+import DonateTestPage from '../pages/DonateTestPage';
 import HomePage from '../pages/HomePage';
 import InProgressPage from '../pages/InProgressPage';
 import JoinUsPage from '../pages/JoinUsPage';
@@ -37,6 +38,7 @@ const AppRoutes: React.FC = (): JSX.Element => (
       />
       <Route path={ROUTES_PATH.reports} element={<ReportsPage />} />
       <Route path={ROUTES_PATH.donate} element={<DonatePage />} />
+      <Route path={ROUTES_PATH.donatetest} element={<DonateTestPage />} />
       <Route path={ROUTES_PATH.contact} element={<ContactPage />} />
       <Route path={ROUTES_PATH.success} element={<SuccessPage />} />
       <Route path="*" element={<NotFoundPage isBlue />} />

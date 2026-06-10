@@ -12,6 +12,7 @@ export enum MENU_ROUTES {
   UserAgreement = 'userAgreement',
   Reports = 'reports',
   Donate = 'donate',
+  DonateTest = 'donatetest',
   Success = 'success',
   Contact = 'contact',
 }
@@ -30,6 +31,7 @@ export const ROUTES_PATH: { [key in MENU_ROUTES]: string } = {
   [MENU_ROUTES.UserAgreement]: '/user_agreement',
   [MENU_ROUTES.Reports]: '/reports',
   [MENU_ROUTES.Donate]: '/donate',
+  [MENU_ROUTES.DonateTest]: '/donatetest',
   [MENU_ROUTES.Contact]: '/contact',
   [MENU_ROUTES.Success]: '/success',
 };
