@@ -71,6 +71,7 @@ export const buildWayForPayData = (params: {
   Object.entries(outData).forEach(([key, value]) => {
     if (Array.isArray(value)) {
       value.forEach((item) => {
+        
         console.log( `${key}[]`); // ← ПОВЕРТАЄМО []
         console.log(String(item));
 
