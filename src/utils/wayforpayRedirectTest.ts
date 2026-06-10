@@ -21,8 +21,6 @@ export function redirectToWayForPay(data: WayForPayRequest): void {
         input1.value = '';
         form.appendChild(input1);
 
-        
-
       });
     } else {
       const input = document.createElement('input');
