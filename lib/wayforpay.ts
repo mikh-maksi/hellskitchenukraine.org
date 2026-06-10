@@ -31,12 +31,24 @@ export const buildWayForPayData = (params: {
     productPrice,
     params.currency,
     productName,
-    '',
     productCount,
-    '',
     productPrice,
-    ''
   ];
+
+  //   const signatureData = [
+  //   WAYFORPAY_MERCHANT,
+  //   domain,
+  //   params.orderReference,
+  //   String(orderDate),
+  //   productPrice,
+  //   params.currency,
+  //   productName,
+  //   '',
+  //   productCount,
+  //   '',
+  //   productPrice,
+  //   ''
+  // ];
 
   const signature = createSignature(WAYFORPAY_SECRET, signatureData);
 
