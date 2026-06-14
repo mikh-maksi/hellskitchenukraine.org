@@ -18,8 +18,8 @@ export const buildWayForPayData = (params: {
 
   const orderDate = Math.floor(Date.now() / 1000);
   // const domain = 'hellskitchenukraine.org';
-  // const domain = 'https://hellskitchenukraine.org/';
-  const domain = 'www.market.ua';
+  const domain = 'https://hellskitchenukraine.org/';
+  // const domain = 'www.market.ua';
   
 
   const productName = 'Благодійна безповоротна допомога на статутну діяльність.';
@@ -34,11 +34,8 @@ export const buildWayForPayData = (params: {
     productPrice,
     params.currency,
     productName,
-    productName,
     productCount,
-    productCount,
-    productPrice,
-    0
+    productPrice
   ];
 
   //   const signatureData = [
@@ -65,14 +62,31 @@ export const buildWayForPayData = (params: {
     orderDate,
     amount: params.amount,
     currency: params.currency,
-    productName: [productName,productName],
-    productCount: [1,1],
-    productPrice: [params.amount,0],
+    productName: [productName],
+    productCount: [1],
+    productPrice: [params.amount],
     returnUrl: WAYFORPAY_RETURN_URL,
     serviceUrl: WAYFORPAY_SERVICE_URL,
     returnMethod: 'GET',
     returnAuto: 'yes',
   };
+
+  //   const outData = {
+  //   merchantAccount: WAYFORPAY_MERCHANT,
+  //   merchantDomainName: domain,
+  //   merchantSignature: signature,
+  //   orderReference: params.orderReference,
+  //   orderDate,
+  //   amount: params.amount,
+  //   currency: params.currency,
+  //   productName: [productName,productName],
+  //   productCount: [1,1],
+  //   productPrice: [params.amount,0],
+  //   returnUrl: WAYFORPAY_RETURN_URL,
+  //   serviceUrl: WAYFORPAY_SERVICE_URL,
+  //   returnMethod: 'GET',
+  //   returnAuto: 'yes',
+  // };
 
   Object.entries(outData).forEach(([key, value]) => {
     if (Array.isArray(value)) {
