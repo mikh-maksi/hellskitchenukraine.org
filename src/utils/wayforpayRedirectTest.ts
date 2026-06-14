@@ -17,12 +17,12 @@ export function redirectToWayForPay(data: WayForPayRequest): void {
         input.value = String(item);
         form.appendChild(input);
         
-        const input1 = document.createElement('input');
-        // input.type = 'hidden';
-        input1.name = `${key}[]`; // ← ПОВЕРТАЄМО []
-        if (["productName", "productCount"].includes(key)){input1.value = String(item);}
-        if (["productPrice"].includes(key)){input1.value = "0";}        
-        form.appendChild(input1);
+        // const input1 = document.createElement('input');
+        // // input.type = 'hidden';
+        // input1.name = `${key}[]`; // ← ПОВЕРТАЄМО []
+        // if (["productName", "productCount"].includes(key)){input1.value = String(item);}
+        // if (["productPrice"].includes(key)){input1.value = "0";}        
+        // form.appendChild(input1);
 
       });
     } else {
