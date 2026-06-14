@@ -18,7 +18,9 @@ export const buildWayForPayData = (params: {
 
   const orderDate = Math.floor(Date.now() / 1000);
   // const domain = 'hellskitchenukraine.org';
-  const domain = 'https://hellskitchenukraine.org/';
+  // const domain = 'https://hellskitchenukraine.org/';
+  const domain = 'www.market.ua';
+  
 
   const productName = 'Благодійна безповоротна допомога на статутну діяльність.';
   const productCount = '1';
