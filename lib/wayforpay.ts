@@ -32,8 +32,11 @@ export const buildWayForPayData = (params: {
     productPrice,
     params.currency,
     productName,
+    productName,
+    productCount,
     productCount,
     productPrice,
+    0
   ];
 
   //   const signatureData = [
