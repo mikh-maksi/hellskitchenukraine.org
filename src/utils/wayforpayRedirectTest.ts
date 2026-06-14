@@ -36,5 +36,5 @@ export function redirectToWayForPay(data: WayForPayRequest): void {
 
   document.body.appendChild(form);
   // console.log(form);
-  // form.submit();
+  form.submit();
 }
