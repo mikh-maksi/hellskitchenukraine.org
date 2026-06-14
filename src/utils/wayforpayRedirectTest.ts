@@ -2,11 +2,13 @@ import { WayForPayRequest } from '../../types/wayforpay';
 
 export function redirectToWayForPay(data: WayForPayRequest): void {
   const form = document.createElement('form');
-  // form.method = 'POST';
+  form.method = 'POST';
   // form.action = 'https://secure.wayforpay.com/pay';
+  form.action = 'https://manec.science.kh.ua/wayforpay/';
   form.acceptCharset = 'utf-8';
-
+  // отримаємо дані з WayForPayRequest
   Object.entries(data).forEach(([key, value]) => {
+    // якщо отримуємо масив, то додаємо до назви []
     if (Array.isArray(value)) {
       value.forEach((item) => {
         const input = document.createElement('input');
@@ -23,6 +25,7 @@ export function redirectToWayForPay(data: WayForPayRequest): void {
 
       });
     } else {
+       // якщо не масив, то додаємо до залишаємо вихідну назву
       const input = document.createElement('input');
       input.type = 'hidden';
       input.name = key;
