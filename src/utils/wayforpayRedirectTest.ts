@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import CryptoJS from 'crypto-js';
 
 import { WayForPayRequest } from '../../types/wayforpay';
 
@@ -44,10 +44,14 @@ export function redirectToWayForPay(data: WayForPayRequest): void {
       form.appendChild(input);
     }
   });
-  const hash = crypto
-      .createHmac('md5', seccode)
-      .update(sigStr, 'utf8')
-      .digest('hex');
+  // const hash = crypto
+  //     .createHmac('md5', seccode)
+  //     .update(sigStr, 'utf8')
+  //     .digest('hex');
+const hash = CryptoJS.HmacMD5(
+    sigStr,
+    seccode
+).toString();
   const input = document.createElement('input');
   input.type = 'hidden';
   input.name = 'sig';
