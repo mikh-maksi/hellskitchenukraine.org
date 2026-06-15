@@ -1,4 +1,5 @@
 import { createSignature } from './crypto';
+import { createSignatureTest } from './cryptoTest';
 
 export const buildWayForPayData = (params: {
   orderReference: string;
@@ -53,7 +54,7 @@ export const buildWayForPayData = (params: {
     0
   ];
 
-  const signature = createSignature( WAYFORPAY_SECRET,signatureData);
+  const signature = createSignatureTest( WAYFORPAY_SECRET,signatureData);
   const signatureStringData = signatureData.map((v) => String(v ?? '')).join(';');
   const outData = {
     merchantAccount: WAYFORPAY_MERCHANT,
