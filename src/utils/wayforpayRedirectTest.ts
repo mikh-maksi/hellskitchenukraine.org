@@ -3,8 +3,8 @@ import { WayForPayRequest } from '../../types/wayforpay';
 export function redirectToWayForPay(data: WayForPayRequest): void {
   const form = document.createElement('form');
   form.method = 'POST';
-  form.action = 'https://secure.wayforpay.com/pay';
-  // form.action = 'https://manec.science.kh.ua/wayforpay/';
+  // form.action = 'https://secure.wayforpay.com/pay';
+  form.action = 'https://manec.science.kh.ua/wayforpay/';
   form.acceptCharset = 'utf-8';
   // отримаємо дані з WayForPayRequest
   Object.entries(data).forEach(([key, value]) => {
