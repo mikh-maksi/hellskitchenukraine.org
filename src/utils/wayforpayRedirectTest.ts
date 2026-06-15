@@ -1,11 +1,18 @@
+import crypto from 'crypto';
+
 import { WayForPayRequest } from '../../types/wayforpay';
 
+
+
 export function redirectToWayForPay(data: WayForPayRequest): void {
+  let sigStr='';
+  let seccode='';
   const form = document.createElement('form');
   form.method = 'POST';
   // form.action = 'https://secure.wayforpay.com/pay';
   form.action = 'https://manec.science.kh.ua/wayforpay/';
   form.acceptCharset = 'utf-8';
+
   // отримаємо дані з WayForPayRequest
   Object.entries(data).forEach(([key, value]) => {
     // якщо отримуємо масив, то додаємо до назви []
@@ -27,14 +34,24 @@ export function redirectToWayForPay(data: WayForPayRequest): void {
       });
     } else {
        // якщо не масив, то додаємо до залишаємо вихідну назву
+
       const input = document.createElement('input');
+      if (["signatureString", "secrectKey"].includes(key)){sigStr = String(value);}
+      if ([ "secrectKey"].includes(key)){seccode = String(value);}
       input.type = 'hidden';
       input.name = key;
       input.value = String(value);
       form.appendChild(input);
     }
   });
-
+  const hash = crypto
+      .createHmac('md5', seccode)
+      .update(sigStr, 'utf8')
+      .digest('hex');
+  const input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = 'sig';
+  input.value = String(hash);
   document.body.appendChild(form);
   // console.log(form);
   form.submit();
