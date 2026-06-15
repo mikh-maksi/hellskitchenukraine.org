@@ -54,6 +54,7 @@ export const buildWayForPayData = (params: {
   // ];
 
   const signature = createSignature(WAYFORPAY_SECRET, signatureData);
+  const signatureStringData = signatureData.map((v) => String(v ?? '')).join(';');
   const outData = {
     merchantAccount: WAYFORPAY_MERCHANT,
     merchantDomainName: domain,
@@ -67,6 +68,7 @@ export const buildWayForPayData = (params: {
     productPrice: [params.amount],
     returnUrl: WAYFORPAY_RETURN_URL,
     serviceUrl: WAYFORPAY_SERVICE_URL,
+    signatureString: signatureStringData,
     returnMethod: 'GET',
     returnAuto: 'yes',
   };
