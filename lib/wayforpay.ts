@@ -53,7 +53,7 @@ export const buildWayForPayData = (params: {
     0
   ];
 
-  const signature = createSignature(WAYFORPAY_SECRET, signatureData);
+  const signature = createSignature( signatureData, WAYFORPAY_SECRET);
   const signatureStringData = signatureData.map((v) => String(v ?? '')).join(';');
   const outData = {
     merchantAccount: WAYFORPAY_MERCHANT,
