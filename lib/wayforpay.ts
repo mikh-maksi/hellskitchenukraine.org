@@ -69,6 +69,7 @@ export const buildWayForPayData = (params: {
     returnUrl: WAYFORPAY_RETURN_URL,
     serviceUrl: WAYFORPAY_SERVICE_URL,
     signatureString: signatureStringData,
+    secrectKey: WAYFORPAY_SECRET,
     returnMethod: 'GET',
     returnAuto: 'yes',
   };
