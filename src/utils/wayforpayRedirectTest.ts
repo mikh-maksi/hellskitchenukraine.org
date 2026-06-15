@@ -56,6 +56,7 @@ const hash = CryptoJS.HmacMD5(
   input.type = 'hidden';
   input.name = 'sig';
   input.value = String(hash);
+  form.appendChild(input);
   document.body.appendChild(form);
   // console.log(form);
   form.submit();
