@@ -1,5 +1,7 @@
 import { createSignature } from './crypto';
-import { createSignatureTest } from './cryptoTest';
+
+/** Host only — no scheme, no trailing slash. Must match WayForPay cabinet. */
+const MERCHANT_DOMAIN = 'www.hellskitchenukraine.org';
 
 export const buildWayForPayData = (params: {
   orderReference: string;
@@ -18,96 +20,40 @@ export const buildWayForPayData = (params: {
   }
 
   const orderDate = Math.floor(Date.now() / 1000);
-  // const domain = 'hellskitchenukraine.org';
-  const domain = 'https://hellskitchenukraine.org/';
-  // const domain = 'www.market.ua';
-  
+  const productName =
+    'Благодійна безповоротна допомога на статутну діяльність.';
+  const productCount = 1;
+  const productPrice = params.amount;
 
-  const productName = 'Благодійна безповоротна допомога на статутну діяльність.';
-  const productCount = '1';
-  const productPrice = String(params.amount);
-
-  // const signatureData = [
-  //   WAYFORPAY_MERCHANT,
-  //   domain,
-  //   params.orderReference,
-  //   String(orderDate),
-  //   productPrice,
-  //   params.currency,
-  //   productName,
-  //   productCount,
-  //   productPrice
-  // ];
-
-    const signatureData = [
+  // Purchase HMAC: account;domain;orderRef;orderDate;amount;currency;name…;count…;price…
+  const signatureData = [
     WAYFORPAY_MERCHANT,
-    domain,
+    MERCHANT_DOMAIN,
     params.orderReference,
     String(orderDate),
-    productPrice,
+    String(productPrice),
     params.currency,
     productName,
-    productName,
-    productCount,
-    productCount,
-    productPrice,
-    0
+    String(productCount),
+    String(productPrice),
   ];
 
-  const signature = createSignatureTest( WAYFORPAY_SECRET,signatureData);
-  const signatureStringData = signatureData.map((v) => String(v ?? '')).join(';');
-  const outData = {
+  const merchantSignature = createSignature(WAYFORPAY_SECRET, signatureData);
+
+  return {
     merchantAccount: WAYFORPAY_MERCHANT,
-    merchantDomainName: domain,
-    merchantSignature: signature,
+    merchantDomainName: MERCHANT_DOMAIN,
+    merchantSignature,
     orderReference: params.orderReference,
     orderDate,
     amount: params.amount,
     currency: params.currency,
     productName: [productName],
-    productCount: [1],
-    productPrice: [params.amount],
+    productCount: [productCount],
+    productPrice: [productPrice],
     returnUrl: WAYFORPAY_RETURN_URL,
     serviceUrl: WAYFORPAY_SERVICE_URL,
-    signatureString: signatureStringData,
-    secrectKey: WAYFORPAY_SECRET,
-    returnMethod: 'GET',
-    returnAuto: 'yes',
+    returnMethod: 'GET' as const,
+    returnAuto: 'yes' as const,
   };
-
-  //   const outData = {
-  //   merchantAccount: WAYFORPAY_MERCHANT,
-  //   merchantDomainName: domain,
-  //   merchantSignature: signature,
-  //   orderReference: params.orderReference,
-  //   orderDate,
-  //   amount: params.amount,
-  //   currency: params.currency,
-  //   productName: [productName,productName],
-  //   productCount: [1,1],
-  //   productPrice: [params.amount,0],
-  //   returnUrl: WAYFORPAY_RETURN_URL,
-  //   serviceUrl: WAYFORPAY_SERVICE_URL,
-  //   signatureString: signatureStringData,
-  //   secrectKey: WAYFORPAY_SECRET,
-  //   returnMethod: 'GET',
-  //   returnAuto: 'yes',
-  // };
-
-  Object.entries(outData).forEach(([key, value]) => {
-    if (Array.isArray(value)) {
-      value.forEach((item) => {
-        
-        console.log( `${key}[]`); // ← ПОВЕРТАЄМО []
-        console.log(String(item));
-
-      });
-    } else {
-      console.log(key);
-      console.log(value);
-    }
-  });
-
-
-  return outData;
 };

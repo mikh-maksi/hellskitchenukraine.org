@@ -2,11 +2,17 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 
 import { buildWayForPayData } from '../lib/wayforpay';
 
+const ALLOWED_ORIGINS = new Set([
+  'https://hellskitchenukraine.org',
+  'https://www.hellskitchenukraine.org',
+]);
+
 export default function handler(req: VercelRequest, res: VercelResponse) {
-  res.setHeader(
-    'Access-Control-Allow-Origin',
-    'https://hellskitchenukraine.org',
-  );
+  const origin = String(req.headers.origin || '');
+  if (ALLOWED_ORIGINS.has(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET, POST, OPTIONS, PUT, PATCH, DELETE',
@@ -24,20 +30,14 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).end();
   }
 
-console.log('BODY TYPE:', typeof req.body);
-console.log('RAW BODY:', req.body);
-console.log('METHOD:', req.method);
-console.log('HEADERS:', req.headers);
-console.log('BODY:', req.body);
-
-if (!req.body) {
-  return res.status(400).json({
-    error: 'Request body is missing',
-  });
-}
+  if (!req.body) {
+    return res.status(400).json({
+      error: 'Request body is missing',
+    });
+  }
 
   try {
-    const { amount =100, currency = 'UAH' } = req.body;
+    const { amount, currency = 'UAH' } = req.body;
 
     if (!amount || Number(amount) <= 0) {
       return res.status(400).json({ error: 'Invalid amount' });
@@ -48,7 +48,7 @@ if (!req.body) {
       amount: Number(amount),
       currency,
     });
-    console.log(data);
+
     return res.status(200).json(data);
   } catch (error) {
     console.error(error);
